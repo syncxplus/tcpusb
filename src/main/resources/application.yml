@@ -1,0 +1,13 @@
+# log
+logging:
+    path: /tmp/logs
+    level:
+        root: DEBUG
+        com.syncxplus: DEBUG
+
+---
+# production
+spring.profiles: production
+logging.level:
+    root: INFO
+    com.syncxplus: INFO

@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath(
+                "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+        )
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'tcpusb'
+    version = '1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+            'org.springframework.boot:spring-boot-devtools',
+            'org.springframework.boot:spring-boot-starter',
+            'com.android.tools:common:25.3.0',
+            'net.sf.kxml:kxml2:2.3.0',
+            fileTree(dir: 'libs', include: ['*.jar'])
+    )
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
